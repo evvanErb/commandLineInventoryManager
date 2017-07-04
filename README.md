@@ -8,3 +8,5 @@ Ecrypted data stored in inventory.txt
 reconfig.py erases all data in inventory.txt and reconfigures so new dataframe created upon first launch
 
 Default password: password
+
+To run inventory manager run this command in terminal: python inventoryAssistant.py
