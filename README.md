@@ -10,3 +10,5 @@ reconfig.py erases all data in inventory.txt and reconfigures so new dataframe c
 Default password: password
 
 To run inventory manager run this command in terminal: python inventoryAssistant.py
+
+Dependencies: python 2.7, pycrypto, numpy, pandas
