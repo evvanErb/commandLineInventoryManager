@@ -52,7 +52,6 @@ def secondaryLaunches(inventory):
     inventory = pd.DataFrame(data[1:], index = inventory[1], columns = data[0])
     return(inventory)
 
-
 #setting up encryptor and decryptor
 def setupEncryption():
     key = raw_input("\nWhat is your password?\n>>> ")
