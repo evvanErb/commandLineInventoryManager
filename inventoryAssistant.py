@@ -18,8 +18,12 @@ def firstLaunch():
         items[i] = items[i].split(",")
     items = np.array(items)
     
-    inventory = pd.DataFrame(items[:,1:], index = items[:,0], columns = categories)
-    return(inventory)
+    try:
+        inventory = pd.DataFrame(items[:,1:], index = items[:,0], columns = categories)
+        return(inventory)
+    except:
+        print("\n[!] The amount of categories did not match the data provided")
+        firstLaunch()
 
 #Every launch after the first one ... turns string into dataframe
 def secondaryLaunches(inventory):
@@ -148,13 +152,19 @@ while (running == True):
     
     elif (choice == "remove item"):
         item = raw_input("\nWhat item would you like to remove?\n>>> ")
-        inventory = inventory.drop(item)
-        print("\n[*] Item removed")
+        try:
+            inventory = inventory.drop(item)
+            print("\n[*] Item removed")
+        except:
+            print("\n[!] That item could not be found and so was not removed")
     
     elif (choice == "remove category"):
         cat = raw_input("\nWhat category would you like to remove?\n>>> ")
-        inventory = inventory.drop(cat, 1)
-        print("\n [*] Category removed")
+        try:
+            inventory = inventory.drop(cat, 1)
+            print("\n [*] Category removed")
+        except:
+            print("\n[!] That category could not be found and so was not removed")
     
     elif (choice == "add item"):
         item = raw_input("\nWhat is the new item you would like to add?\n>>> ")
@@ -163,6 +173,7 @@ while (running == True):
             value = raw_input("\nEnter item's value for " + i + "\n>>> ")
             cats.append(value)
         inventory.loc[item] = cats
+        print("\n[*] Item added")
     
     elif (choice == "add category"):
         cat = raw_input("\nWhat is the name of the category would you like to add?\n>>> ")
